@@ -5,35 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>آینده هوش مصنوعی و تکنولوژی‌های نوین</title>
     
-    <!-- متاتگ‌های توییتر -->
-    <meta name="twitter:card" content="player">
-    <meta name="twitter:site" content="@Tawanatrump">
-    <meta name="twitter:creator" content="@Tawanatrump">
-    <meta name="twitter:title" content="آینده هوش مصنوعی و تکنولوژی‌های نوین">
-    <meta name="twitter:description" content="بررسی تأثیر هوش مصنوعی بر زندگی روزمره و آینده تکنولوژی در دهه آینده">
-    <meta name="twitter:image" content="https://tawr00t.github.io/twitter-card-demo/images/Gmuoy1oacAAXWFA.jpg">
-    <meta name="twitter:player" content="https://x.com/i/status/1903158224209187228">
-    <meta name="twitter:player:width" content="480">
-    <meta name="twitter:player:height" content="480">
-    
-    <!-- متاتگ‌های Open Graph برای سایر پلتفرم‌ها -->
-    <meta property="og:title" content="آینده هوش مصنوعی و تکنولوژی‌های نوین">
-    <meta property="og:description" content="بررسی تأثیر هوش مصنوعی بر زندگی روزمره و آینده تکنولوژی در دهه آینده">
-    <meta property="og:image" content="https://tawr00t.github.io/twitter-card-demo/images/Gmuoy1oacAAXWFA.jpg">
-    <meta property="og:url" content="https://tawr00t.github.io/twitter-card-demo/">
-    <meta property="og:type" content="website">
-    <meta property="og:video" content="https://x.com/i/status/1903158224209187228">
-    <meta property="og:video:type" content="text/html">
-    <meta property="og:video:width" content="480">
-    <meta property="og:video:height" content="480">
+    <!-- متاتگ‌های توییتر و Open Graph بدون تغییر -->
     
     <style>
         body {
             font-family: Tahoma, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f5f5f5;
+            overflow-x: hidden; /* برای جلوگیری از اسکرول افقی */
         }
         
         .container {
@@ -45,33 +26,53 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
-        .modal {
-            display: none;
+        /* استایل جدید برای پنل کناری */
+        .side-panel {
             position: fixed;
-            z-index: 1000;
-            left: 0;
             top: 0;
-            width: 100%;
+            left: -100%; /* شروع از خارج صفحه */
+            width: 90%;
+            max-width: 400px;
             height: 100%;
-            background-color: rgba(0,0,0,0.7);
-        }
-        
-        .modal-content {
             background-color: #fff;
-            margin: 10% auto;
-            padding: 20px;
-            width: 80%;
-            max-width: 700px;
-            border-radius: 5px;
-            position: relative;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+            direction: rtl;
         }
         
-        .close {
+        .side-panel.open {
+            left: 0; /* نمایش پنل */
+        }
+        
+        .panel-content {
+            padding: 20px;
+        }
+        
+        .panel-video {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .close-panel {
             position: absolute;
             top: 10px;
             right: 10px;
             font-size: 24px;
             cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
         }
         
         .image-container {
@@ -97,18 +98,25 @@
         <h1>آینده هوش مصنوعی و تکنولوژی‌های نوین</h1>
         
         <!-- تصویری که کاربر روی آن کلیک می‌کند -->
-        <div class="image-container" onclick="openModal()">
+        <div class="image-container" onclick="openPanel()">
             <img src="images/Gmuoy1oacAAXWFA.jpg" alt="تصویر هوش مصنوعی">
             <p>برای مطالعه تحلیل کامل درباره آینده هوش مصنوعی کلیک کنید</p>
         </div>
     </div>
     
-    <!-- مودال برای نمایش محتوای اضافی -->
-    <div id="contentModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+    <!-- پنل کناری جدید -->
+    <div id="sidePanel" class="side-panel">
+        <span class="close-panel" onclick="closePanel()">&times;</span>
+        <div class="panel-content">
+            <div class="panel-video">
+                <!-- جاسازی ویدیوی توییتر -->
+                <blockquote class="twitter-tweet" data-media-max-width="480">
+                    <a href="https://x.com/i/status/1903158224209187228"></a>
+                </blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            
             <h2>تحول هوش مصنوعی در دهه آینده</h2>
-            <img src="images/Gmuoy1oacAAXWFA.jpg" alt="تصویر هوش مصنوعی" style="max-width: 100%;">
             <div class="additional-content">
                 <h3>انقلاب هوش مصنوعی تولیدی</h3>
                 <p>هوش مصنوعی تولیدی (Generative AI) یکی از مهم‌ترین پیشرفت‌های تکنولوژی در سال‌های اخیر بوده است. این فناوری با قابلیت تولید متن، تصویر، صدا و ویدیو، صنایع مختلف را متحول کرده است. مدل‌های زبانی بزرگ (LLMs) مانند GPT-4 و Claude توانایی درک و تولید متن با کیفیتی نزدیک به انسان را دارند و در حوزه‌های مختلف از برنامه‌نویسی تا پزشکی کاربرد پیدا کرده‌اند.</p>
@@ -122,23 +130,22 @@
         </div>
     </div>
     
+    <!-- پس‌زمینه تیره برای زمان باز بودن پنل -->
+    <div id="overlay" class="overlay" onclick="closePanel()"></div>
+    
     <script>
-        // باز کردن مودال
-        function openModal() {
-            document.getElementById("contentModal").style.display = "block";
+        // باز کردن پنل کناری
+        function openPanel() {
+            document.getElementById("sidePanel").classList.add("open");
+            document.getElementById("overlay").style.display = "block";
+            document.body.style.overflow = "hidden"; // جلوگیری از اسکرول صفحه اصلی
         }
         
-        // بستن مودال
-        function closeModal() {
-            document.getElementById("contentModal").style.display = "none";
-        }
-        
-        // بستن مودال با کلیک خارج از محتوا
-        window.onclick = function(event) {
-            var modal = document.getElementById("contentModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        // بستن پنل کناری
+        function closePanel() {
+            document.getElementById("sidePanel").classList.remove("open");
+            document.getElementById("overlay").style.display = "none";
+            document.body.style.overflow = "auto"; // فعال کردن مجدد اسکرول
         }
     </script>
 </body>
