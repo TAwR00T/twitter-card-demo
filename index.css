@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/sahel@v3.4.0/dist/font-face.css');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/samim@v4.0.5/dist/font-face.css');
+
+body {
+  margin: 0;
+  font-family: 'Vazirmatn', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Samim', monospace;
+}
